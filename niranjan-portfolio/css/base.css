@@ -1,0 +1,105 @@
+/* ═══════════════════════════════════════
+   BASE.CSS — Reset, Tokens, Utilities
+═══════════════════════════════════════ */
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Design Tokens ── */
+:root {
+  /* Colors */
+  --white:  #ffffff;
+  --bg:     #f7f9fc;
+  --bg2:    #f0f3f9;
+  --border: #e2e8f2;
+  --navy:   #0d1b3e;
+  --blue:   #2563eb;
+  --teal:   #0891b2;
+  --text:   #0d1b3e;
+  --sub:    #374151;
+  --muted:  #6b7280;
+  --light:  #94a3b8;
+
+  /* Shadows */
+  --sh:  0 2px 12px rgba(13, 27, 62, 0.08);
+  --shm: 0 8px 28px rgba(13, 27, 62, 0.12);
+  --shl: 0 20px 56px rgba(13, 27, 62, 0.15);
+
+  /* Border radius */
+  --r: 14px;
+}
+
+/* ── Body ── */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+/* ── Section Shared ── */
+section { padding: 90px 56px; }
+
+.sec-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 7px;
+}
+.sec-title {
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+.sec-desc {
+  font-size: .93rem;
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 480px;
+  line-height: 1.75;
+}
+.sec-head { margin-bottom: 54px; }
+
+/* ── Scroll Animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-22px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  section { padding: 60px 18px; }
+}
